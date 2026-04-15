@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Maritime Dark Theme */
+    --background: 222 47% 8%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Cyan/Teal Maritime Primary */
+    --primary: 187 85% 53%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 187 70% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Status Colors */
+    --status-safe: 152 69% 45%;
+    --status-caution: 38 92% 50%;
+    --status-danger: 0 72% 51%;
+    --status-info: 199 89% 48%;
+
+    /* Maritime Specific */
+    --maritime-deep: 222 47% 6%;
+    --maritime-navy: 222 47% 11%;
+    --maritime-slate: 217 33% 17%;
+    --maritime-cyan: 187 85% 53%;
+    --maritime-teal: 173 80% 40%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 17%;
+    --ring: 187 85% 53%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 9%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 187 85% 53%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 217 33% 15%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 217 33% 18%;
+    --sidebar-ring: 187 85% 53%;
+  }
+
+  .light {
+    /* Maritime Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Cyan/Teal Maritime Primary */
+    --primary: 187 85% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 187 70% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --status-safe: 152 69% 40%;
+    --status-caution: 38 92% 45%;
+    --status-danger: 0 72% 51%;
+    --status-info: 199 89% 45%;
+
+    /* Maritime Specific */
+    --maritime-deep: 210 40% 95%;
+    --maritime-navy: 210 40% 98%;
+    --maritime-slate: 210 40% 96%;
+    --maritime-cyan: 187 85% 40%;
+    --maritime-teal: 173 80% 35%;
+
+    --border: 217 33% 85%;
+    --input: 217 33% 90%;
+    --ring: 187 85% 40%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 187 85% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 217 33% 85%;
+    --sidebar-ring: 187 85% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-maritime-deep;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Maritime Panel Styles */
+  .panel-maritime {
+    @apply bg-card border border-border/50 rounded-lg backdrop-blur-sm;
+  }
+
+  .panel-header {
+    @apply px-4 py-3 border-b border-border/50 flex items-center justify-between;
+  }
+
+  /* Status Badges */
+  .status-safe {
+    @apply bg-status-safe/20 text-status-safe border border-status-safe/30;
+  }
+
+  .status-caution {
+    @apply bg-status-caution/20 text-status-caution border border-status-caution/30;
+  }
+
+  .status-danger {
+    @apply bg-status-danger/20 text-status-danger border border-status-danger/30;
+  }
+
+  /* Glowing Effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-safe {
+    box-shadow: 0 0 15px hsl(var(--status-safe) / 0.4);
+  }
+
+  /* Map Controls */
+  .map-control {
+    @apply bg-card/95 backdrop-blur-md border border-border/50 rounded-lg p-2 shadow-lg;
+  }
+
+  /* Regulation Timeline Bar */
+  .timeline-bar {
+    @apply h-6 rounded-sm transition-all duration-200;
+  }
+
+  .timeline-bar-safe {
+    @apply bg-gradient-to-r from-status-safe/80 to-status-safe;
+  }
+
+  .timeline-bar-caution {
+    @apply bg-gradient-to-r from-status-caution/80 to-status-caution;
+  }
+
+  .timeline-bar-danger {
+    @apply bg-gradient-to-r from-status-danger/80 to-status-danger;
+  }
+
+  /* Navigation Tabs */
+  .nav-tab {
+    @apply px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative;
+  }
+
+  .nav-tab-active {
+    @apply text-primary;
+  }
+
+  .nav-tab-active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Maritime Backgrounds */
+  .bg-maritime-deep {
+    background-color: hsl(var(--maritime-deep));
+  }
+
+  .bg-maritime-navy {
+    background-color: hsl(var(--maritime-navy));
+  }
+
+  .bg-maritime-slate {
+    background-color: hsl(var(--maritime-slate));
+  }
+
+  /* Status Text Colors */
+  .text-status-safe {
+    color: hsl(var(--status-safe));
+  }
+
+  .text-status-caution {
+    color: hsl(var(--status-caution));
+  }
+
+  .text-status-danger {
+    color: hsl(var(--status-danger));
+  }
+
+  .text-status-info {
+    color: hsl(var(--status-info));
+  }
+
+  /* Animation Utilities */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(-10px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+}
